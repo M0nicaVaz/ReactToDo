@@ -1,36 +1,30 @@
 import { useState } from 'react';
+import { List } from '../components/List';
+import { Form } from '../components/Form';
+import { Item } from '../configs/item';
 
 export default function ToDo() {
-  const [text, setText] = useState('');
   const [items, setItems] = useState([]);
 
-  function handleInput(e) {
-    let inputValue = e.target.value;
-    setText(inputValue);
+  function onAddItem(text) {
+    let item = new Item(text);
+
+    setItems([...items, item]);
   }
 
-  function handleAdd(e) {
-    e.preventDefault();
-    if (text) {
-      setItems([...items, text]);
-      setText('');
-    }
+  function onDeleteItem(selectedItem) {
+    let filteredItems = items.filter((item) => item.id != selectedItem.id);
+
+    setItems(filteredItems);
   }
 
   return (
     <div className="container">
-      <h1>TODO</h1>
+      <h1>ToDo List</h1>
 
-      <form>
-        <input onChange={handleInput} type="text" value={text} />
-        <button onClick={handleAdd}>Add</button>
-      </form>
+      <Form onAddItem={onAddItem} />
 
-      <ul>
-        {items.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
+      <List handleDelete={onDeleteItem} items={items} />
     </div>
   );
 }
