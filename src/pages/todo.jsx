@@ -18,13 +18,28 @@ export default function ToDo() {
     setItems(filteredItems);
   }
 
+  function onCheckItem(selectedItem) {
+    let updatedItems = items.map((item) => {
+      if (item.id === selectedItem.id) {
+        item.done = !item.done;
+      }
+      return item;
+    });
+
+    setItems(updatedItems);
+  }
+
   return (
     <div className="container">
       <h1>ToDo List</h1>
 
       <Form onAddItem={onAddItem} />
 
-      <List handleDelete={onDeleteItem} items={items} />
+      <List
+        handleDelete={onDeleteItem}
+        handleCheck={onCheckItem}
+        items={items}
+      />
     </div>
   );
 }
