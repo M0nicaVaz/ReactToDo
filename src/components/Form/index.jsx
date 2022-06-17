@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FiPlusSquare } from 'react-icons/fi';
 
-export function Form({ onAddItem }) {
+export function Form({ addItem }) {
   const [text, setText] = useState('');
 
   function handleInput(e) {
@@ -12,7 +12,7 @@ export function Form({ onAddItem }) {
   function handleAdd(e) {
     e.preventDefault();
     if (text) {
-      onAddItem(text);
+      addItem(text);
       setText('');
     }
   }
@@ -20,7 +20,7 @@ export function Form({ onAddItem }) {
   return (
     <form>
       <input onChange={handleInput} type="text" value={text} />
-      <button onClick={handleAdd}>
+      <button type="submit" onClick={handleAdd}>
         <FiPlusSquare size={20} />
       </button>
     </form>
