@@ -1,6 +1,17 @@
 .container {
   margin: auto;
   max-width: 900px;
+
+  text-align: center;
+}
+
+body {
+  font-family: roboto;
+}
+
+a,
+button {
+  cursor: pointer;
 }
 
 ul {

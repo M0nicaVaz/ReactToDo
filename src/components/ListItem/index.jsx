@@ -1,27 +1,30 @@
-import { FiXSquare, FiSquare, FiCheckSquare } from 'react-icons/fi';
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
+import { FiSquare, FiCheckSquare } from 'react-icons/fi';
+import SnackButton from '../SnackButton';
+import { Item } from './styles';
+import { Button } from '../Button';
 
 export function ListItem({ item, handleDelete, handleCheck, itemId }) {
   item.id = itemId;
 
+  const greenButton = css({
+    color: 'green',
+  });
+
   return (
-    <li className={item.done ? 'item-done' : ''}>
-      <button
+    <Item className={item.done ? 'item-done' : ''}>
+      <Button
         onClick={() => {
           handleCheck(item);
         }}
-      >
-        {item.done ? <FiCheckSquare size={20} /> : <FiSquare size={20} />}
-      </button>
+        css={item.done && greenButton}
+        icon={item.done ? FiCheckSquare : FiSquare}
+      />
 
       {item.description}
 
-      <button
-        onClick={() => {
-          handleDelete(item);
-        }}
-      >
-        <FiXSquare size={20} />
-      </button>
-    </li>
+      <SnackButton item={item} handleDelete={handleDelete} />
+    </Item>
   );
 }

@@ -24,6 +24,8 @@ export default function ToDo() {
   }
 
   function checkItem(selectedItem) {
+    console.log(selectedItem);
+
     let updatedItems = items.map((item) => {
       if (item.id === selectedItem.id) {
         item.done = !item.done;
@@ -37,9 +39,7 @@ export default function ToDo() {
   return (
     <main className="container">
       <h1>ToDo List</h1>
-
       <Form addItem={addItem} />
-
       <List handleDelete={deleteItem} handleCheck={checkItem} items={items} />
     </main>
   );

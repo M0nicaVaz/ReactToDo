@@ -1,8 +1,9 @@
 import { ListItem } from '../ListItem';
+import Stack from '@mui/material/Stack';
 
 export function List({ items, handleDelete, handleCheck }) {
   return (
-    <ul>
+    <Stack spacing={2}>
       {items.map((item, index) => (
         <ListItem
           key={String(index)}
@@ -12,6 +13,6 @@ export function List({ items, handleDelete, handleCheck }) {
           handleCheck={handleCheck}
         />
       ))}
-    </ul>
+    </Stack>
   );
 }
