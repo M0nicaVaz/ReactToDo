@@ -42,9 +42,10 @@ export default function ConsecutiveSnackbars({ item, handleDelete }) {
 
   return (
     <div>
-      <Button onClick={handleClick(' Tarefa Apagada!')} icon={FiXSquare} />
+      <Button color="warning" onClick={handleClick()} icon={FiXSquare} />
 
       <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
         key={messageInfo ? messageInfo.key : undefined}
         open={open}
         autoHideDuration={1000}

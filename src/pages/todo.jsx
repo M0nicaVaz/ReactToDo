@@ -4,6 +4,7 @@ import { Form } from '../components/Form';
 import { Item } from '../configs/item';
 import Typography from '@mui/material/Typography';
 import '@fontsource/roboto';
+import { Container } from '@mui/material';
 
 export default function ToDo() {
   const savedList = JSON.parse(localStorage.getItem('@savedList'));
@@ -26,8 +27,6 @@ export default function ToDo() {
   }
 
   function checkItem(selectedItem) {
-    console.log(selectedItem);
-
     let updatedItems = items.map((item) => {
       if (item.id === selectedItem.id) {
         item.done = !item.done;
@@ -39,10 +38,10 @@ export default function ToDo() {
   }
 
   return (
-    <main className="container">
-      <Typography variant="h1">Welcome to MUI</Typography>
+    <Container maxWidth="md" sx={{ paddingBlock: '50px', textAlign: 'center' }}>
+      <Typography variant="h1">LISTA DE TAREFAS</Typography>
       <Form addItem={addItem} />
       <List handleDelete={deleteItem} handleCheck={checkItem} items={items} />
-    </main>
+    </Container>
   );
 }

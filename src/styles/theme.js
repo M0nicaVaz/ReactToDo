@@ -4,7 +4,7 @@ export let theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#9B70C6',
+      main: '#9157ca',
     },
     secondary: {
       main: '#3A3E4F',
@@ -19,7 +19,8 @@ export let theme = createTheme({
   },
   typography: {
     h1: {
-      fontSize: '2.375rem',
+      fontSize: '3rem',
+      fontWeight: 'bolder',
     },
     fontFamily: ['Roboto', '"Helvetica"', 'sans-serif'].join(','),
   },

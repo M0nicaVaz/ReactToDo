@@ -1,12 +1,12 @@
 // import { ListItem } from '../ListItem';
 import Stack from '@mui/material/Stack';
-import CheckBox from '../CheckBox';
+import { ListItem } from '../ListItem';
 
 export function List({ items, handleDelete, handleCheck }) {
   return (
     <Stack spacing={2}>
       {items.map((item, index) => (
-        <CheckBox
+        <ListItem
           key={String(index)}
           itemId={index}
           item={item}
