@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { List } from '../components/List';
 import { Form } from '../components/Form';
 import { Item } from '../configs/item';
+import Typography from '@mui/material/Typography';
+import '@fontsource/roboto';
 
 export default function ToDo() {
   const savedList = JSON.parse(localStorage.getItem('@savedList'));
@@ -38,7 +40,7 @@ export default function ToDo() {
 
   return (
     <main className="container">
-      <h1>ToDo List</h1>
+      <Typography variant="h1">Welcome to MUI</Typography>
       <Form addItem={addItem} />
       <List handleDelete={deleteItem} handleCheck={checkItem} items={items} />
     </main>

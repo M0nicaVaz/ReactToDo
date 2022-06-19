@@ -1,9 +1,7 @@
-/** @jsxImportSource @emotion/react */
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
-import { css } from '@emotion/react';
 import { FiXSquare } from 'react-icons/fi';
 import { Button } from '../Button';
 
@@ -42,17 +40,9 @@ export default function ConsecutiveSnackbars({ item, handleDelete }) {
     setMessageInfo(undefined);
   };
 
-  const redButton = css({
-    color: 'red',
-  });
-
   return (
     <div>
-      <Button
-        onClick={handleClick(' Tarefa Apagada!')}
-        icon={FiXSquare}
-        css={redButton}
-      />
+      <Button onClick={handleClick(' Tarefa Apagada!')} icon={FiXSquare} />
 
       <Snackbar
         key={messageInfo ? messageInfo.key : undefined}
